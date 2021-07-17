@@ -47,3 +47,26 @@ class GFG
 	 }
 	 }
 }
+class Solution
+{
+    //Function to find the maximum occurring character in a string.
+    public static char getMaxOccuringChar(String line)
+    {
+        // Your code here
+        int[] ch=new int [26];
+        for(int i=0;i<line.length();i++)
+        {
+            int c=(int)line.charAt(i);
+            c=c-97;
+            ch[c]++;
+        }  int max=0;int j=0;
+        for(int i=0;i<26;i++)
+        {
+            if(ch[i]>max){
+            max=ch[i];
+            j=i+97;}
+        }
+        return (char)j;
+    }
+    
+}
