@@ -125,3 +125,65 @@ class GfG
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+
+// Longest Substring Without Repeating Characters 
+
+import java.io.*;
+import java.util.*;
+
+class GFG {
+    public static void main (String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	        
+	    int t=Integer.parseInt(br.readLine());
+    
+	    while(t > 0){
+	        String s = br.readLine();
+	        Solution T = new Solution();
+	        System.out.println(T.SubsequenceLength(s));
+	        
+            t--;
+	    }
+	}
+    
+}
+
+
+
+// } Driver Code Ends
+
+
+//User function Template for Java
+
+
+class Solution
+{
+    
+
+    int SubsequenceLength(String s) 
+    {
+        // Code here  
+        String s1=s;
+        int t=0,c=1,max=0;
+        for(int i=1;i<s.length();i++)
+        {
+            int j=i;
+            while(j>t)
+            {
+                if(s.charAt(i)==s1.charAt(j-1)){
+                t=j;
+                break;}
+                else
+                c++;
+                j--;
+            }
+            if(c>max)
+            max=c;
+            c=1;
+        }
+        return max;
+    }
+    
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
