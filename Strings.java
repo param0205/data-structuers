@@ -187,3 +187,94 @@ class Solution
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Multply 2 Strings
+
+//Initial Template for Java
+
+
+import java.util.*;
+import java.math.*;
+
+class Multiply{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        while(t-->0){
+            String a=sc.next();
+            String b=sc.next();
+            Solution g=new Solution();
+            System.out.println(g.multiplyStrings(a,b));
+        }
+    }
+}// } Driver Code Ends
+
+
+//User function Template for Java
+
+class Solution
+{
+    public String multiplyStrings(String s1,String s2)
+    {
+        //code here.
+        
+       
+        String s="";
+          if(s1.charAt(0)=='-' && s2.charAt(0)=='-'){
+            s1=s1.substring(1);
+              s2=s2.substring(1);}
+      else if(s1.charAt(0)=='-')
+        {
+        s1=s1.substring(1);
+          s="-";
+        }
+        else if(s2.charAt(0)=='-')
+        {
+        s2=s2.substring(1);
+          s="-" ;
+        }
+         int n1=s1.length();
+        int n2=s2.length();
+        
+        if(n1==0 || n2==0)
+         return "0";
+        int[] arr=new int[n1+n2];
+        int l1=0;
+      
+        
+        for(int i=n1-1;i>=0;i--)
+        {
+              int l2=0;
+              int a=s1.charAt(i)-'0';
+              int c=0;
+              
+              for(int j=n2-1;j>=0;j--)
+              {
+                  int b=s2.charAt(j)-'0';
+                  int d=a*b;
+                  int sum=arr[l1+l2]+c+d;
+                  c=sum/10;
+                  arr[l1+l2]=sum%10;
+                  l2++;
+              }
+                if(c>0)
+                arr[l1+l2]+=c;
+              l1++;
+        }
+        int i=arr.length-1;
+        while(i>=0 && arr[i]==0)
+        i--;
+        
+        if(i==-1)
+        return "0";
+      
+        
+        while(i>=0)
+        {
+            s=s+arr[i--];
+        }
+        return s;
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
