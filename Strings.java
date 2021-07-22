@@ -386,3 +386,64 @@ class Solution
     
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Initial Template for Java
+
+/*package whatever //do not write package name here */
+
+//Given a positive integer N, return its corresponding column title as it would appear in an Excel sheet.
+//For N =1 we have column A, for 27 we have AA and so on.
+
+import java.io.*;
+import java.util.*;
+
+class GFG {
+    public static void main (String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	        
+	    int t=Integer.parseInt(br.readLine());
+    
+	    while(t > 0){
+	        int n = Integer.parseInt(br.readLine());
+	        Solution T = new Solution();
+	        
+	        System.out.println(T.excelColumn(n));
+	        
+            t--;
+	    }
+	}
+    
+}// } Driver Code Ends
+
+
+//User function Template for Java
+
+class Solution {
+    public String excelColumn(int N){
+        
+        //  Your code here
+        char[] a={'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+        String s="";
+        
+        while(N>0)
+        {
+            int i=N%26;
+            if(i==0)
+            i=26;
+            s=s+a[i-1];
+            if(N==26)
+            N=0;
+            if(N%26==0 && N!=0)
+            N=N-1;
+            N=N/26;
+        }
+        String p="";
+        for(int i=s.length()-1;i>=0;i--)
+        {
+            p=p+s.charAt(i);
+        }
+        return p;
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
