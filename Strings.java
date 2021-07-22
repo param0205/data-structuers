@@ -447,3 +447,73 @@ class Solution {
     }
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+// Initial Template for Java
+/*Write a program to Validate an IPv4 Address. According to Wikipedia, 
+IPv4 addresses are canonically represented in dot-decimal notation, which consists of four decimal numbers, 
+each ranging from 0 to 255, separated by dots, e.g., 172.16.254.1 . The generalized form of an IPv4 address is (0-255).(0-255).(0-255).(0-255). 
+Here we are considering numbers only from 0 to 255 and any additional leading zeroes will be considered invalid.*/
+
+import java.util.*;
+import java.io.*;
+
+  public class validip {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+
+        while (t-- > 0) {
+            String s = sc.next();
+            Solution obj = new Solution();
+
+            if (obj.isValid(s))
+                System.out.println(1);
+            else
+                System.out.println(0);
+        }
+    }
+}// } Driver Code Ends
+
+
+// User function Template for Java
+
+class Solution {
+
+    public boolean isValid(String s) {
+        // Write your code here
+          int c=0;
+        for(int i=0;i<s.length();i++)
+        {
+            if(s.charAt(i)=='.' ) 
+               c++;
+    }
+    if(c!=3)
+    return false;
+      
+        if(s.length()<7 || s.length()>15)
+        return false;
+        String[] str=s.split("\\.");
+        if(str.length!=4)
+        return false;
+        for(int i=0;i<str.length;i++)
+        {  
+            for(int j=0;j<str[i].length();j++)
+        {
+            if ( !Character.isDigit( str[i].charAt(j) ) )
+                return false;
+    }
+            if(str[i].isEmpty())
+            return false;
+            if(str[i].charAt(0)=='0' && str[i].length()>1)
+            return false;
+            if(Integer.parseInt(str[i])<0 || Integer.parseInt(str[i])>255)
+            return false;
+        }
+        return true;
+    }
+    
+}
