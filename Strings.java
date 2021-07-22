@@ -278,3 +278,111 @@ class Solution
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Reverse words in a given string
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class GFG {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        while (t > 0) {
+            String s = sc.next();
+            Solution obj = new Solution();
+            System.out.println(obj.reverseWords(s));
+            t--;
+        }
+    }
+}
+// } Driver Code Ends
+
+
+
+
+class Solution 
+{
+    //Function to reverse words in a given string.
+    String reverseWords(String S)
+    {
+        // code here 
+        if(S.length()==0)
+        return "0";
+        String temp="";
+        String[] str=S.split("\\.");
+        for(int i=str.length-1;i>0;i--)
+        {
+            temp=temp+str[i]+".";
+        }
+      temp=temp+str[0];
+      return temp;
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+//Initial Template for Java
+
+// Longest Substring Without Repeating Characters
+
+import java.io.*;
+import java.util.*;
+
+class GFG {
+    public static void main (String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	        
+	    int t=Integer.parseInt(br.readLine());
+    
+	    while(t > 0){
+	        String s = br.readLine();
+	        Solution T = new Solution();
+	        System.out.println(T.SubsequenceLength(s));
+	        
+            t--;
+	    }
+	}
+    
+}
+
+
+
+// } Driver Code Ends
+
+
+//User function Template for Java
+
+
+class Solution
+{
+    
+
+    int SubsequenceLength(String s) 
+    {
+        // Code here  
+        String s1=s;
+        int t=0,c=1,max=0;
+        for(int i=1;i<s.length();i++)
+        {
+            int j=i;
+            while(j>t)
+            {
+                if(s.charAt(i)==s1.charAt(j-1)){
+                t=j;
+                break;}
+                else
+                c++;
+                j--;
+            }
+            if(c>max)
+            max=c;
+            c=1;
+        }
+        return max;
+    }
+    
+}
+
