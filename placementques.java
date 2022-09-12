@@ -50,3 +50,29 @@ public class MyClass {
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//SUM OR PRODUCT
+
+public class Solution {
+
+	public static long sumOrProduct(int n, int q) {
+
+		// Write your code here
+        long sum=0,p=1;
+        if(q==1)
+        {
+            for(int i=1;i<=n;i++){
+                sum=sum+i;}
+            return sum;
+        }
+        else
+        {   
+            for(int i=1;i<=n;i++)
+            {
+                p= (long)((p*i)%(Math.pow(10,9)+7));
+            }
+            return p;
+        }
+  
+	}
+}
