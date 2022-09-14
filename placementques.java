@@ -76,3 +76,32 @@ public class Solution {
   
 	}
 }
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//SORT 0s ,1s,2s
+
+
+import java.util.* ;
+import java.io.*; 
+public class Solution 
+{
+    public static void sort012(int[] arr)
+    {
+        //Write your code here
+        int[] b={0,0,0};
+        for(int i=0;i<arr.length;i++)
+        {
+            b[arr[i]]++;
+        }
+        int i=0;
+        while(b[0]-->0)
+            arr[i++]=0;
+        while(b[1]-->0)
+            arr[i++]=1;
+        while(b[2]-->0)
+            arr[i++]=2;
+        
+    }
+}
